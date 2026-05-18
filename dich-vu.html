@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch vụ | MH Media - Meticulous Highlight</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'sans': ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 font-sans text-stone-800 antialiased overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-950/90 backdrop-blur-md border-b border-stone-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 bg-emerald-700 rounded-full flex items-center justify-center font-playfair font-bold text-xl text-white tracking-wider group-hover:bg-emerald-600 transition-colors">
+                    MH
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-playfair font-bold text-lg text-white tracking-wide leading-none">MH MEDIA</span>
+                    <span class="text-[10px] text-emerald-400 font-medium tracking-widest mt-0.5 uppercase">meticulous highlight</span>
+                </div>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-300 tracking-wide">
+                <a href="index.html" class="hover:text-emerald-400 transition-colors">Trang chủ</a>
+                <a href="dich-vu.html" class="text-emerald-400 transition-colors">Dịch vụ</a>
+                <a href="du-an.html" class="hover:text-emerald-400 transition-colors">Dự án</a>
+                <a href="lien-he.html" class="hover:text-emerald-400 transition-colors">Liên hệ</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="lien-he.html" class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full uppercase tracking-wider transition-all duration-300 shadow-md shadow-emerald-900/20">
+                    Nhận báo giá
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-40 pb-24 bg-stone-950 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <span class="text-emerald-400 text-xs font-bold tracking-widest uppercase mb-3 block fade-in-up active">Dịch Vụ Cốt Lõi</span>
+            <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight max-w-4xl mx-auto fade-in-up active" style="transition-delay: 100ms;">
+                Giải Pháp Sản Xuất <br><span class="text-emerald-400">Hình Ảnh & Video</span> Toàn Diện
+            </h1>
+            <p class="text-stone-400 md:text-lg max-w-2xl mx-auto font-light leading-relaxed fade-in-up active" style="transition-delay: 200ms;">
+                MH Media mang tới tư duy duy mỹ, thiết bị tối tân và quy trình tỉ mỉ để hiện thực hóa mọi ý tưởng truyền thông của thương hiệu.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 max-w-7xl mx-auto px-6 space-y-32">
+        
+        <div class="service-card grid md:grid-cols-2 gap-12 lg:gap-20 items-center fade-in-up">
+            <div class="relative overflow-hidden rounded-2xl bg-stone-900 shadow-xl group aspect-[4/3]">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800" alt="Video Production" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950/50 to-transparent"></div>
+            </div>
+            <div class="space-y-6">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xl">01</div>
+                <h2 class="font-playfair text-3xl font-bold tracking-tight text-stone-900">Video Production</h2>
+                <p class="text-stone-600 font-light leading-relaxed">
+                    Sản xuất thước phim có chiều sâu bằng tư duy góc quay điện ảnh và hệ thống thiết bị chống rung ổn định tối tân. Chúng tôi tối ưu hình ảnh chuyên nghiệp trên mọi định dạng hiển thị.
+                </p>
+                <ul class="grid grid-cols-2 gap-3 text-sm font-medium text-stone-700">
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>TVC & Phim doanh nghiệp</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Video ngắn TikTok / Reels</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Video Recap sự kiện</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Music Video & Phóng sự</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-card grid md:grid-cols-2 gap-12 lg:gap-20 items-center md:flex-row-reverse fade-in-up">
+            <div class="space-y-6 md:order-2">
+                <div class="relative overflow-hidden rounded-2xl bg-stone-900 shadow-xl group aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800" alt="Professional Photography" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90">
+                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950/50 to-transparent"></div>
+                </div>
+            </div>
+            <div class="space-y-6 md:order-1">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xl">02</div>
+                <h2 class="font-playfair text-3xl font-bold tracking-tight text-stone-900">Professional Photography</h2>
+                <p class="text-stone-600 font-light leading-relaxed">
+                    Bắt trọn từng khoảnh khắc đắt giá và kiến tạo không gian hình ảnh đẳng cấp. Mỗi khung hình đều được tính toán kỹ lưỡng về ánh sáng, bố cục để lột tả chân thực giá trị cốt lõi của thương hiệu.
+                </p>
+                <ul class="grid grid-cols-2 gap-3 text-sm font-medium text-stone-700">
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Chụp ảnh sản phẩm cao cấp</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Chân dung thương hiệu</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Nhiếp ảnh sự kiện lớn</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Lookbook thời trang</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-card grid md:grid-cols-2 gap-12 lg:gap-20 items-center fade-in-up">
+            <div class="relative overflow-hidden rounded-2xl bg-stone-900 shadow-xl group aspect-[4/3]">
+                <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?auto=format&fit=crop&q=80&w=800" alt="Post-Production & Content" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950/50 to-transparent"></div>
+            </div>
+            <div class="space-y-6">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xl">03</div>
+                <h2 class="font-playfair text-3xl font-bold tracking-tight text-stone-900">Post-Production & Content</h2>
+                <p class="text-stone-600 font-light leading-relaxed">
+                    Nơi biến những thước phim thô thành kiệt tác truyền thông hoàn chỉnh. Kịch bản phân cảnh chi tiết kết hợp kỹ thuật cắt dựng nhịp điệu, kỹ xảo hiệu ứng mượt mà và cân chỉnh màu sắc chuyên sâu.
+                </p>
+                <ul class="grid grid-cols-2 gap-3 text-sm font-medium text-stone-700">
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Dựng phim chuyên nghiệp</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Color Grading (Cân màu)</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Kịch bản phân cảnh chi tiết</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                        <span>Biên tập hiệu ứng âm thanh</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-stone-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-20 fade-in-up">
+                <span class="text-emerald-400 text-xs font-bold tracking-widest uppercase mb-3 block">Quy Trình Nghiêm Ngặt</span>
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold tracking-tight">Quy Trình Làm Việc Tỉ Mỉ</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <div class="service-card space-y-4 relative p-6 bg-stone-950 rounded-xl border border-stone-800 fade-in-up">
+                    <div class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Bước 01</div>
+                    <h3 class="font-playfair text-xl font-bold text-white">Pre-production</h3>
+                    <p class="text-stone-400 text-sm font-light leading-relaxed">Tiếp nhận thông tin khách hàng, khảo sát bối cảnh, lên ý tưởng độc đáo và hoàn thiện kịch bản phân cảnh chi tiết.</p>
+                </div>
+                <div class="service-card space-y-4 relative p-6 bg-stone-950 rounded-xl border border-stone-800 fade-in-up" style="transition-delay: 100ms;">
+                    <div class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Bước 02</div>
+                    <h3 class="font-playfair text-xl font-bold text-white">Production</h3>
+                    <p class="text-stone-400 text-sm font-light leather-relaxed">Bấm máy thực hiện quay chụp trực tiếp với hệ thống máy quay hiện đại, set-up ánh sáng studio bài bản và ekip chuyên nghiệp.</p>
+                </div>
+                <div class="service-card space-y-4 relative p-6 bg-stone-950 rounded-xl border border-stone-800 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Bước 03</div>
+                    <h3 class="font-playfair text-xl font-bold text-white">Post-production</h3>
+                    <p class="text-stone-400 text-sm font-light leading-relaxed">Tiến hành cắt dựng nhịp điệu âm thanh, chỉnh sửa kỹ xảo tinh tế và thực hiện cân chỉnh màu sắc nghệ thuật (Color Grading).</p>
+                </div>
+                <div class="service-card space-y-4 relative p-6 bg-stone-950 rounded-xl border border-stone-800 fade-in-up" style="transition-delay: 300ms;">
+                    <div class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Bước 04</div>
+                    <h3 class="font-playfair text-xl font-bold text-white">Bàn giao</h3>
+                    <p class="text-stone-400 text-sm font-light leading-relaxed">Gửi khách hàng duyệt bản demo, thực hiện căn chỉnh tối ưu cuối cùng theo yêu cầu và nghiệm thu xuất file chất lượng cao.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-stone-950 text-white py-16 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 items-center md:items-start">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-emerald-700 rounded-full flex items-center justify-center font-playfair font-bold text-xl text-white">MH</div>
+                    <span class="font-playfair font-bold text-lg tracking-wide">MH MEDIA</span>
+                </div>
+                <p class="text-stone-400 text-sm font-light leading-relaxed max-w-sm">
+                    Ghi dấu câu chuyện thương hiệu bằng ngôn ngữ hình ảnh duy mỹ và sắc sảo nhất.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold uppercase text-emerald-400 tracking-widest mb-4">Điều Hướng</h4>
+                <div class="grid grid-cols-2 gap-2 text-sm text-stone-400 font-light">
+                    <a href="index.html" class="hover:text-white transition-colors">Trang chủ</a>
+                    <a href="dich-vu.html" class="hover:text-white transition-colors">Dịch vụ</a>
+                    <a href="du-an.html" class="hover:text-white transition-colors">Dự án</a>
+                    <a href="lien-he.html" class="hover:text-white transition-colors">Liên hệ</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold uppercase text-emerald-400 tracking-widest mb-4">Kết Nối</h4>
+                <p class="text-sm text-stone-400 font-light leading-relaxed">
+                    Email: hello@MHmedia.com <br>
+                    Địa chỉ: Thủ Dầu Một, Bình Dương
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-500 font-light">
+            &copy; 2026 MH Media. All rights reserved. Designed with meticulous details.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
