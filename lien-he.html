@@ -3,175 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên hệ | MH Media - Meticulous Highlight</title>
-    
+    <title>Liên hệ - MH Media</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        emerald: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#064e3b',
-                        }
+                        emerald: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
                     },
-                    fontFamily: {
-                        'playfair': ['Playfair Display', 'serif'],
-                        'sans': ['DM Sans', 'sans-serif'],
-                    }
+                    fontFamily: { 'display': ['Playfair Display', 'serif'], 'sans': ['DM Sans', 'sans-serif'] }
                 }
             }
         }
     </script>
-
     <style>
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease-out;
+        * { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
         }
-        .fade-in-up.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .gradient-text { background: linear-gradient(135deg, #059669 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .cta-button { position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .cta-button::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.2); transform: translate(-50%, -50%); transition: width 0.5s, height 0.5s; }
+        .cta-button:hover::before { width: 300px; height: 300px; }
+        .nav-link { position: relative; transition: color 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #10b981; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .fade-in-up.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="bg-stone-50 font-sans text-stone-800 antialiased overflow-x-hidden">
+<body class="bg-white text-gray-800">
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-950/90 backdrop-blur-md border-b border-stone-800">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 bg-emerald-700 rounded-full flex items-center justify-center font-playfair font-bold text-xl text-white tracking-wider group-hover:bg-emerald-600 transition-colors">
-                    MH
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-playfair font-bold text-lg text-white tracking-wide leading-none">MH MEDIA</span>
-                    <span class="text-[10px] text-emerald-400 font-medium tracking-widest mt-0.5 uppercase">meticulous highlight</span>
-                </div>
-            </a>
-            
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-stone-300 tracking-wide">
-                <a href="index.html" class="hover:text-emerald-400 transition-colors">Trang chủ</a>
-                <a href="dich-vu.html" class="hover:text-emerald-400 transition-colors">Dịch vụ</a>
-                <a href="du-an.html" class="hover:text-emerald-400 transition-colors">Dự án</a>
-                <a href="lien-he.html" class="text-emerald-400 transition-colors">Liên hệ</a>
-            </nav>
-
-            <div class="hidden md:block">
-                <a href="lien-he.html" class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full uppercase tracking-wider transition-all duration-300 shadow-md shadow-emerald-900/20">
-                    Nhận báo giá
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl overflow-hidden shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                        <img src="logo.jpg" alt="MH Logo" class="w-full h-full object-cover">
+                    </div>
+                    <span style="-webkit-text-fill-color: #10b981;" class="text-2xl font-display font-bold tracking-tighter">MH MEDIA</span>
                 </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Trang chủ</a>
+                    <a href="dich-vu.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Dịch vụ</a>
+                    <a href="du-an.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Portfolio</a>
+                    <a href="lien-he.html" class="text-emerald-600 font-medium">Liên hệ</a>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <section class="pt-36 pb-24 max-w-7xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+    <section class="hero-pattern pt-36 pb-24 px-6 container mx-auto max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
             
-            <div class="space-y-10 fade-in-up active">
+            <div class="space-y-8 fade-in-up active">
                 <div class="space-y-4">
-                    <span class="text-emerald-700 text-xs font-bold tracking-widest uppercase block">Liên Hệ Ngay</span>
-                    <h1 class="font-playfair text-4xl font-bold tracking-tight text-stone-900">Khởi Động Dự Án Của Bạn</h1>
-                    <p class="text-stone-600 font-light leading-relaxed max-w-md">
-                        Hãy cho MH Media biết nhu cầu của bạn. Ekip chuyên gia của chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.
-                    </p>
+                    <span class="text-emerald-600 font-semibold text-sm tracking-wider uppercase block">Liên hệ kết nối</span>
+                    <h1 class="font-display font-bold text-4xl text-gray-900 leading-tight">Khởi Động <span class="gradient-text">Dự Án</span></h1>
+                    <p class="text-gray-600 font-light leading-relaxed">Hãy chia sẻ thông điệp của bạn. Đội ngũ MH Media luôn sẵn sàng đồng hành hỗ trợ tối đa tư duy sản xuất hình ảnh.</p>
                 </div>
-
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm border border-stone-100">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                            &#9993;
-                        </div>
-                        <div>
-                            <div class="text-xs text-stone-400 uppercase font-bold tracking-wider">Email</div>
-                            <a href="mailto:hello@MHmedia.com" class="text-stone-800 font-medium hover:text-emerald-600 transition-colors">hello@MHmedia.com</a>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm border border-stone-100">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                            &#128222;
-                        </div>
-                        <div>
-                            <div class="text-xs text-stone-400 uppercase font-bold tracking-wider">Hotline Tư Vấn</div>
-                            <span class="text-stone-800 font-medium">+84 90 123 4567</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm border border-stone-100">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                            &#128205;
-                        </div>
-                        <div>
-                            <div class="text-xs text-stone-400 uppercase font-bold tracking-wider">Văn phòng chính</div>
-                            <span class="text-stone-800 font-medium">Thủ Dầu Một, Bình Dương</span>
-                        </div>
-                    </div>
+                <div class="space-y-4 text-gray-700">
+                    <p><strong>Email:</strong> hello@MHmedia.com</p>
+                    <p><strong>Hotline:</strong> +84 123 456 789</p>
+                    <p><strong>Văn phòng:</strong> Thủ Dầu Một, Bình Dương</p>
                 </div>
-
-                <div class="w-full h-64 bg-stone-200 rounded-2xl shadow-inner border border-stone-200 overflow-hidden relative group">
-                    <div class="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors z-10"></div>
+                <div class="w-full h-56 bg-gray-100 rounded-2xl border border-gray-200 overflow-hidden shadow-inner">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.905602447936!2d106.67139121111623!3d10.970542389146194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d0dcd4c1bdfd%3A0x6b772439c369ee64!2zVGjhu6cgROGp3UgTeG7mXQsIELDqG5oCBExrDGoW5n!5e0!3m2!1svi!2svn!4v1710000000000" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
-            <div class="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-stone-100 fade-in-up active" style="transition-delay: 150ms;">
-                <h2 class="font-playfair text-2xl font-bold tracking-tight text-stone-900 mb-6">Gửi Yêu Cầu Tư Vấn</h2>
-                
-                <form action="#" method="POST" class="space-y-5">
-                    <div class="grid md:grid-cols-2 gap-5">
-                        <div class="space-y-1.5">
-                            <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Họ và tên *</label>
-                            <input type="text" required class="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
-                        </div>
-                        <div class="space-y-1.5">
-                            <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Tên doanh nghiệp</label>
-                            <input type="text" class="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-5">
-                        <div class="space-y-1.5">
-                            <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Số điện thoại *</label>
-                            <input type="tel" required class="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
-                        </div>
-                        <div class="space-y-1.5">
-                            <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Địa chỉ Email *</label>
-                            <input type="email" required class="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
-                        </div>
-                    </div>
-
-                    <div class="space-y-1.5">
-                        <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Dịch vụ bạn quan tâm *</label>
-                        <select required class="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white text-stone-600 transition-all">
-                            <option value="">-- Chọn dịch vụ --</option>
-                            <option value="video">Sản xuất Video chuyên nghiệp</option>
-                            <option value="photo">Chụp ảnh thương hiệu / Sản phẩm</option>
-                            <option value="all">Trọn gói dịch vụ truyền thông (Media Campaign)</option>
-                        </select>
-                    </div>
-
-                    <div class="space-y-1.5">
-                        <label class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Mô tả ý tưởng hoặc yêu cầu</label>
-                        <textarea rows="4" class="w-full px-4 py-3 bg-stone-50 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-emerald-500 focus:bg-white transition-all" placeholder="Ghi chú ngắn gọn về kịch bản, thời lượng mong muốn hoặc thông tin sản phẩm..."></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full py-4 rounded-xl bg-stone-950 text-white font-semibold text-xs uppercase tracking-widest hover:bg-emerald-700 transition-all duration-300 shadow-md">
-                        Gửi yêu cầu tư vấn
+            <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-xl fade-in-up active">
+                <h2 class="font-display font-bold text-2xl text-gray-900 mb-6">Gửi yêu cầu tư vấn</h2>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Họ và tên *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white">
+                    <input type="email" placeholder="Địa chỉ Email *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white">
+                    <select required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-500 focus:outline-none focus:border-emerald-500 transition-all bg-white">
+                        <option value="">Chọn dịch vụ bạn cần *</option>
+                        <option value="video">Sản xuất Video</option>
+                        <option value="photo">Nhiếp ảnh sản phẩm / Chân dung</option>
+                        <option value="all">Chiến dịch truyền thông tổng thể</option>
+                    </select>
+                    <textarea placeholder="Mô tả tóm tắt ý tưởng..." rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white"></textarea>
+                    <button type="submit" class="cta-button w-full bg-emerald-600 text-white font-semibold py-3.5 rounded-xl hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 text-sm tracking-wide">
+                        Gửi Yêu Cầu
                     </button>
                 </form>
             </div>
@@ -179,13 +98,12 @@
         </div>
     </section>
 
-    <footer class="bg-stone-950 text-white py-12 border-t border-stone-900">
-        <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
-            <div class="flex items-center justify-center space-x-3">
-                <div class="w-8 h-8 bg-emerald-700 rounded-full flex items-center justify-center font-playfair font-bold text-base">MH</div>
-                <span class="font-playfair font-bold tracking-wide">MH MEDIA</span>
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto max-w-6xl text-center space-y-4">
+            <span class="text-2xl font-display font-bold tracking-tighter text-white">MH MEDIA</span>
+            <div class="border-t border-gray-800 pt-6 text-xs text-gray-400">
+                <p>&copy; 2026 MH Media Agency. Tất cả các quyền được bảo lưu.</p>
             </div>
-            <p class="text-xs text-stone-500 font-light">&copy; 2026 MH Media. All rights reserved. Meticulous Highlight Agency.</p>
         </div>
     </footer>
 </body>
