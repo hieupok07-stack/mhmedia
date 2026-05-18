@@ -4,37 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liên hệ - MH Media</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
-            theme: {
+            theme = {
                 extend: {
                     colors: {
-                        emerald: { 50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80', 500: '#10b981', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
                     },
-                    fontFamily: { 'display': ['Playfair Display', 'serif'], 'sans': ['DM Sans', 'sans-serif'] }
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['DM Sans', 'sans-serif'],
+                    },
                 }
             }
         }
     </script>
+    
     <style>
         * { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
         .hero-pattern {
-            background-image: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
         }
-        .gradient-text { background: linear-gradient(135deg, #059669 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .gradient-text {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .cta-button { position: relative; overflow: hidden; transition: all 0.3s ease; }
-        .cta-button::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.2); transform: translate(-50%, -50%); transition: width 0.5s, height 0.5s; }
+        .cta-button::before {
+            content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+            border-radius: 50%; background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%); transition: width 0.5s, height 0.5s;
+        }
         .cta-button:hover::before { width: 300px; height: 300px; }
         .nav-link { position: relative; transition: color 0.3s ease; }
         .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #10b981; transition: width 0.3s ease; }
         .nav-link:hover::after { width: 100%; }
-        .fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .fade-in-up.active { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+        .mobile-menu.active { transform: translateX(0); }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -42,52 +76,32 @@
     <header class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="#" class="flex items-center space-x-3 group">
-    <div class="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-neon/20 group-hover:rotate-6 transition-transform duration-300">
-        <img src="logo.jpg" 
-             alt="HMD Media Logo" 
-             class="w-full h-full object-cover">
-    </div>
-    
-    <span  style="-webkit-text-fill-color: #10b981;" class="text-2xl font-display font-bold tracking-tighter">
-        MH<span class="text-neon"> </span>MEDIA
-    </span>
-</a>
-                
-                <!-- Desktop Menu -->
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-neon/20 group-hover:rotate-6 transition-transform duration-300">
+                        <img src="logo.jpg" alt="MH Media Logo" class="w-full h-full object-cover">
+                    </div>
+                    <span style="-webkit-text-fill-color: #10b981;" class="text-2xl font-display font-bold tracking-tighter">MH MEDIA</span>
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="hover:text-emerald-500">Trang chủ</a>
-                    <a href="dich-vu.html" class="hover:text-emerald-500">Dịch vụ</a>
-                    <a href="du-an.html" class="hover:text-emerald-500">Dự án</a>
-                    <a href="lien-he.html" class="hover:text-emerald-500">Liên hệ</a>
-                    <a href="#team" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Đội ngũ</a>
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Trang chủ</a>
+                    <a href="dich-vu.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Dịch vụ</a>
+                    <a href="du-an.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Dự án</a>
+                    <a href="lien-he.html" class="text-emerald-600 font-medium relative after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[2px] after:bg-emerald-500">Liên hệ</a>
+                    <a href="index.html#team" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Đội ngũ</a>
                 </div>
-                
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </nav>
-        
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-2xl">
             <div class="p-6">
-                <button id="close-menu" class="absolute top-6 right-6 text-gray-600">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+                <button id="close-menu" class="absolute top-6 right-6 text-gray-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
                 <div class="mt-12 space-y-6">
-                    <a href="#services" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Dịch vụ</a>
-                    <a href="#portfolio" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Portfolio</a>
-                    <a href="#team" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Đội ngũ</a>
-                    <a href="#contact" class="block bg-emerald-600 text-white px-6 py-3 rounded-full font-medium text-center hover:bg-emerald-700 mobile-link">
-Liên hệ
-                    </a>
+                    <a href="index.html" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Trang chủ</a>
+                    <a href="dich-vu.html" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Dịch vụ</a>
+                    <a href="du-an.html" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Portfolio</a>
+                    <a href="lien-he.html" class="block text-emerald-600 font-medium mobile-link">Liên hệ</a>
                 </div>
             </div>
         </div>
@@ -96,36 +110,42 @@ Liên hệ
     <section class="hero-pattern pt-36 pb-24 px-6 container mx-auto max-w-6xl">
         <div class="grid lg:grid-cols-2 gap-12 items-start">
             
-            <div class="space-y-8 fade-in-up active">
+            <div class="space-y-8 fade-in-up">
                 <div class="space-y-4">
-                    <span class="text-emerald-600 font-semibold text-sm tracking-wider uppercase block">Liên hệ kết nối</span>
-                    <h1 class="font-display font-bold text-4xl text-gray-900 leading-tight">Khởi Động <span class="gradient-text">Dự Án</span></h1>
-                    <p class="text-gray-600 font-light leading-relaxed">Hãy chia sẻ thông điệp của bạn. Đội ngũ MH Media luôn sẵn sàng đồng hành hỗ trợ tối đa tư duy sản xuất hình ảnh.</p>
+                    <span class="text-emerald-600 font-semibold text-sm tracking-wider uppercase block">Kết nối ngay</span>
+                    <h1 class="font-display font-bold text-4xl md:text-5xl text-gray-900 leading-tight">Khởi Động <span class="gradient-text">Dự Án</span></h1>
+                    <p class="text-gray-600 font-light leading-relaxed">Hãy để lại thông tin nhu cầu hoặc ý tưởng sơ bộ, đội ngũ sáng tạo của MH Media luôn sẵn sàng liên hệ phản hồi hỗ trợ bạn tối đa.</p>
                 </div>
-                <div class="space-y-4 text-gray-700">
-                    <p><strong>Email:</strong> hello@MHmedia.com</p>
-                    <p><strong>Hotline:</strong> +84 123 456 789</p>
-                    <p><strong>Văn phòng:</strong> Thủ Dầu Một, Bình Dương</p>
+                <div class="space-y-4 text-sm font-medium text-gray-700">
+                    <div class="flex items-center space-x-3">
+                        <span>✉</span> <span class="font-light">hello@MHmedia.com</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span>📞</span> <span class="font-light">+84 123 456 789</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <span>📍</span> <span class="font-light">Thủ Dầu Một, Bình Dương</span>
+                    </div>
                 </div>
-                <div class="w-full h-56 bg-gray-100 rounded-2xl border border-gray-200 overflow-hidden shadow-inner">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.905602447936!2d106.67139121111623!3d10.970542389146194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d0dcd4c1bdfd%3A0x6b772439c369ee64!2zVGjhu6cgROGp3UgTeG7mXQsIELDqG5oCBExrDGoW5n!5e0!3m2!1svi!2svn!4v1710000000000" class="w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+                <div class="w-full h-56 bg-gray-100 rounded-2xl border border-gray-200 overflow-hidden shadow-inner relative group">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.905602447936!2d106.67139121111623!3d10.970542389146194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d0dcd4c1bdfd%3A0x6b772439c369ee64!2zVGjhu6cgROGp3UgTeG7mXQsIELDqG5oCBExrDGoW5n!5e0!3m2!1svi!2svn!4v1710000000000" class="w-full h-full border-0 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300" loading="lazy"></iframe>
                 </div>
             </div>
 
-            <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-xl fade-in-up active">
-                <h2 class="font-display font-bold text-2xl text-gray-900 mb-6">Gửi yêu cầu tư vấn</h2>
+            <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-2xl fade-in-up" style="animation-delay: 0.1s;">
+                <h2 class="font-display font-bold text-2xl text-gray-900 mb-6">Gửi yêu cầu nhận tư vấn</h2>
                 <form class="space-y-4">
-                    <input type="text" placeholder="Họ và tên *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white">
-                    <input type="email" placeholder="Địa chỉ Email *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white">
-                    <select required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-500 focus:outline-none focus:border-emerald-500 transition-all bg-white">
-                        <option value="">Chọn dịch vụ bạn cần *</option>
-                        <option value="video">Sản xuất Video</option>
-                        <option value="photo">Nhiếp ảnh sản phẩm / Chân dung</option>
-                        <option value="all">Chiến dịch truyền thông tổng thể</option>
+                    <input type="text" placeholder="Họ và tên *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white font-light">
+                    <input type="email" placeholder="Địa chỉ Email *" required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white font-light">
+                    <select required class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-400 focus:outline-none focus:border-emerald-500 transition-all bg-white font-light">
+                        <option value="">Chọn nhóm dịch vụ bạn cần *</option>
+                        <option value="video">Sản xuất Video Production</option>
+                        <option value="photo">Nhiếp ảnh Professional Photography</option>
+                        <option value="post">Hậu kỳ & Biên tập nội dung kịch bản</option>
                     </select>
-                    <textarea placeholder="Mô tả tóm tắt ý tưởng..." rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white"></textarea>
-                    <button type="submit" class="cta-button w-full bg-emerald-600 text-white font-semibold py-3.5 rounded-xl hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 text-sm tracking-wide">
-                        Gửi Yêu Cầu
+                    <textarea placeholder="Mô tả tóm tắt mong muốn hoặc ý tưởng dự án..." rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-emerald-500 transition-all bg-white font-light"></textarea>
+                    <button type="submit" class="cta-button w-full bg-emerald-600 text-white font-semibold py-3.5 rounded-xl hover:bg-emerald-700 shadow-lg shadow-emerald-600/20 text-sm tracking-wide transition">
+                        Gửi Yêu Cầu Đăng Ký
                     </button>
                 </form>
             </div>
@@ -133,75 +153,21 @@ Liên hệ
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 px-6">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-neon/20 group-hover:rotate-6 transition-transform duration-300">
-        <img src="logo.jpg" 
-             alt="HMD Media Logo" 
-             class="w-full h-full object-cover">
-    </div>
-    
-    <span  class="text-2xl font-display font-bold text-white tracking-tighter">
-        MH<span class="text-neon"> </span>MEDIA
-    </span>
-                        
-                    </div>
-                    <p class="text-gray-400 mb-4 max-w-sm">
-                        Đồng hành cùng thương hiệu Việt chinh phục thị trường số với những giải pháp truyền thông sáng tạo và hiệu quả.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-<path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-display font-bold text-lg mb-4">Dịch vụ</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#services" class="hover:text-emerald-400 transition">Digital Marketing</a></li>
-<li><a href="#services" class="hover:text-emerald-400 transition">Video Production</a></li>
-                        <li><a href="#services" class="hover:text-emerald-400 transition">Content Creation</a></li>
-                        <li><a href="#services" class="hover:text-emerald-400 transition">Brand Strategy</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-display font-bold text-lg mb-4">Công ty</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#team" class="hover:text-emerald-400 transition">Về chúng tôi</a></li>
-                        <li><a href="#portfolio" class="hover:text-emerald-400 transition">Portfolio</a></li>
-                        <li><a href="#contact" class="hover:text-emerald-400 transition">Liên hệ</a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition">Tuyển dụng</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+        <div class="container mx-auto max-w-6xl text-center space-y-4">
+            <span class="text-2xl font-display font-bold tracking-tighter text-white">MH MEDIA</span>
+            <div class="border-t border-gray-800 pt-6 text-xs text-gray-400 font-light">
                 <p>&copy; 2026 MH Media Agency. Tất cả các quyền được bảo lưu.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+    </script>
 </body>
 </html>
