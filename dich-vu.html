@@ -27,6 +27,15 @@
                             700: '#047857',
                             800: '#065f46',
                             900: '#064e3b',
+                        },
+                        forest: {
+                            50: '#f4f9f4',
+                            100: '#e8f3e8',
+                            500: '#2d5a3d',
+                            600: '#234a31',
+                            700: '#1a3926',
+                            800: '#11291a',
+                            900: '#081810',
                         }
                     },
                     fontFamily: {
@@ -39,50 +48,147 @@
     </script>
     
     <style>
-        * { scroll-behavior: smooth; }
-        body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        
         .hero-pattern {
             background-image: 
                 radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
         }
+        
         .gradient-text {
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
         .service-card {
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
+        
         .service-card::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 2px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
             background: linear-gradient(90deg, transparent, #10b981, transparent);
             transition: left 0.5s ease;
         }
-        .service-card:hover::before { left: 100%; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15); }
-        .cta-button { position: relative; overflow: hidden; transition: all 0.3s ease; }
-        .cta-button::before {
-            content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
-            border-radius: 50%; background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%); transition: width 0.5s, height 0.5s;
+        
+        .service-card:hover::before {
+            left: 100%;
         }
-        .cta-button:hover::before { width: 300px; height: 300px; }
-        .section-title { position: relative; display: inline-block; }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.15);
+        }
+        
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
         .section-title::after {
-            content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 3px;
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
             background: linear-gradient(90deg, #059669, #10b981);
         }
-        .nav-link { position: relative; transition: color 0.3s ease; }
-        .nav-link::after {
-            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #10b981; transition: width 0.3s ease;
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .nav-link:hover::after { width: 100%; }
-        .fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .fade-in-up.active { opacity: 1; transform: translateY(0); }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #10b981;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -90,29 +196,23 @@
     <header class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <a href="#" class="flex items-center space-x-3 group">
-    <div class="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-neon/20 group-hover:rotate-6 transition-transform duration-300">
-        <img src="logo.jpg" 
-             alt="HMD Media Logo" 
-             class="w-full h-full object-cover">
-    </div>
-    
-    <span  style="-webkit-text-fill-color: #10b981;" class="text-2xl font-display font-bold tracking-tighter">
-        MH<span class="text-neon"> </span>MEDIA
-    </span>
-</a>
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-neon/20 group-hover:rotate-6 transition-transform duration-300">
+                        <img src="logo.jpg" alt="MH Media Logo" class="w-full h-full object-cover">
+                    </div>
+                    <span style="-webkit-text-fill-color: #10b981;" class="text-2xl font-display font-bold tracking-tighter">
+                        MH<span class="text-neon"> </span>MEDIA
+                    </span>
+                </a>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="hover:text-emerald-500">Trang chủ</a>
-                    <a href="dich-vu.html" class="hover:text-emerald-500">Dịch vụ</a>
-                    <a href="du-an.html" class="hover:text-emerald-500">Dự án</a>
-                    <a href="lien-he.html" class="hover:text-emerald-500">Liên hệ</a>
-                    <a href="#team" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Đội ngũ</a>
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Trang chủ</a>
+                    <a href="dich-vu.html" class="text-emerald-600 font-medium relative after:absolute after:bottom-[-5px] after:left-0 after:w-full after:h-[2px] after:bg-emerald-500">Dịch vụ</a>
+                    <a href="du-an.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Dự án</a>
+                    <a href="lien-he.html" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Liên hệ</a>
+                    <a href="index.html#team" class="nav-link text-gray-700 hover:text-emerald-600 font-medium">Đội ngũ</a>
                 </div>
                 
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -121,7 +221,6 @@
             </div>
         </nav>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 h-full w-64 bg-white shadow-2xl">
             <div class="p-6">
                 <button id="close-menu" class="absolute top-6 right-6 text-gray-600">
@@ -130,77 +229,127 @@
                     </svg>
                 </button>
                 <div class="mt-12 space-y-6">
-                    <a href="#services" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Dịch vụ</a>
-                    <a href="#portfolio" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Portfolio</a>
-                    <a href="#team" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Đội ngũ</a>
-                    <a href="#contact" class="block bg-emerald-600 text-white px-6 py-3 rounded-full font-medium text-center hover:bg-emerald-700 mobile-link">Liên hệ
-                    </a>
+                    <a href="index.html" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Trang chủ</a>
+                    <a href="dich-vu.html" class="block text-emerald-600 font-medium mobile-link">Dịch vụ</a>
+                    <a href="du-an.html" class="block text-gray-700 hover:text-emerald-600 font-medium mobile-link">Portfolio</a>
+                    <a href="lien-he.html" class="block bg-emerald-600 text-white px-6 py-3 rounded-full font-medium text-center hover:bg-emerald-700 mobile-link">Liên hệ</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="hero-pattern pt-32 pb-16 px-6">
+    <section class="hero-pattern pt-32 pb-16 md:pt-40 md:pb-24 px-6">
         <div class="container mx-auto max-w-6xl text-center space-y-4">
-            <span class="text-emerald-600 font-semibold text-sm tracking-wider uppercase block">Dịch Vụ Chi Tiết</span>
-            <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">
+            <div class="inline-block fade-in-up stagger-1">
+                <span class="text-emerald-600 font-semibold text-sm tracking-wider uppercase">Creative Solutions</span>
+            </div>
+            <h1 class="hero-title font-display font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight fade-in-up stagger-2">
                 Giải Pháp Sản Xuất <span class="gradient-text">Hình Ảnh & Video</span> Toàn Diện
             </h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed">
-                Chúng tôi tập trung vào kỹ thuật quay chụp duy mỹ và quy trình hậu kỳ tỉ mỉ để tạo ra những sản phẩm truyền thông đột phá.
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light leading-relaxed fade-in-up stagger-3">
+                MH Media mang tới tư duy duy mỹ độc đáo, thiết bị hiện đại cùng quy trình hậu kỳ tỉ mỉ nhằm tối ưu hóa câu chuyện thương hiệu của bạn.
             </p>
         </div>
     </section>
 
-    <section class="py-16 container mx-auto max-w-6xl px-6 space-y-24">
-        <div class="grid md:grid-cols-2 gap-12 items-center fade-in-up">
-            <div>
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800" alt="Video Production" class="rounded-2xl shadow-xl w-full">
+    <section class="py-16 md:py-24 container mx-auto max-w-6xl px-6 space-y-24">
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center service-card p-6 md:p-8 bg-transparent rounded-3xl">
+            <div class="relative overflow-hidden rounded-2xl shadow-xl aspect-video group">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&auto=format&fit=crop" 
+                     alt="Video Production" 
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
             </div>
             <div class="space-y-4">
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest block">Dịch vụ 01</span>
                 <h2 class="font-display font-bold text-3xl text-gray-900">Video Production</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    Sản xuất thước phim có chiều sâu bằng tư duy góc quay điện ảnh và hệ thống thiết bị quay chụp hiện đại. Chúng tôi tối ưu hình ảnh chuyên nghiệp trên mọi định dạng hiển thị.
+                <p class="text-gray-600 leading-relaxed font-light">
+                    Sản xuất thước phim có chiều sâu bằng tư duy góc quay điện ảnh và hệ thống thiết bị chống rung ổn định tối tân. Tập trung nhấn mạnh vào tư duy hình ảnh chuyển động chuyên nghiệp, phù hợp đa nền tảng.
                 </p>
-                <ul class="space-y-2 text-gray-600 font-medium text-sm">
-                    <li>✓ TVC quảng cáo & Phim doanh nghiệp</li>
-                    <li>✓ Video ngắn sáng tạo (TikTok / Reels / Shorts)</li>
-                    <li>✓ Video Recap sự kiện quy mô</li>
-                </ul>
+                <div class="grid grid-cols-2 gap-3 text-sm font-medium text-gray-700 pt-2">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>TVC & Phim doanh nghiệp</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Video ngắn TikTok / Reels</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Video Recap sự kiện</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Viral Video đột phá</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 items-center md:flex-row-reverse fade-in-up">
-            <div class="md:order-2">
-                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800" alt="Professional Photography" class="rounded-2xl shadow-xl w-full">
+        <div class="grid md:grid-cols-2 gap-12 items-center md:flex-row-reverse service-card p-6 md:p-8 bg-transparent rounded-3xl">
+            <div class="md:order-2 relative overflow-hidden rounded-2xl shadow-xl aspect-video group">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&auto=format&fit=crop" 
+                     alt="Professional Photography" 
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
             </div>
             <div class="space-y-4 md:order-1">
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest block">Dịch vụ 02</span>
                 <h2 class="font-display font-bold text-3xl text-gray-900">Professional Photography</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    Bắt trọn từng khoảnh khắc đắt giá và kiến tạo không gian hình ảnh đẳng cấp. Mỗi khung hình đều được tính toán kỹ lưỡng về ánh sáng, bố cục để lột tả chân thực giá trị thương hiệu.
+                <p class="text-gray-600 leading-relaxed font-light">
+                    Kiến tạo không gian nghệ thuật tĩnh sắc nét. Mỗi khung hình đều được tính toán kỹ lưỡng về nghệ thuật sắp đặt ánh sáng, bố cục tiêu chuẩn nhằm lột tả chân thực giá trị sản phẩm và tinh thần thương hiệu.
                 </p>
-                <ul class="space-y-2 text-gray-600 font-medium text-sm">
-                    <li>✓ Chụp ảnh sản phẩm cao cấp / Studio</li>
-                    <li>✓ Ảnh chân dung thương hiệu doanh nhân</li>
-                    <li>✓ Nhiếp ảnh kiến trúc, lookbook thời trang</li>
-                </ul>
+                <div class="grid grid-cols-2 gap-3 text-sm font-medium text-gray-700 pt-2">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Chụp ảnh sản phẩm cao cấp</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Chân dung thương hiệu cá nhân</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Nhiếp ảnh sự kiện lớn</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Lookbook thời trang</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 items-center fade-in-up">
-            <div>
-                <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?w=800" alt="Post-Production" class="rounded-2xl shadow-xl w-full">
+        <div class="grid md:grid-cols-2 gap-12 items-center service-card p-6 md:p-8 bg-transparent rounded-3xl">
+            <div class="relative overflow-hidden rounded-2xl shadow-xl aspect-video group">
+                <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?w=800&auto=format&fit=crop" 
+                     alt="Post-Production & Content" 
+                     class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
             </div>
             <div class="space-y-4">
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest block">Dịch vụ 03</span>
                 <h2 class="font-display font-bold text-3xl text-gray-900">Post-Production & Content</h2>
-                <p class="text-gray-600 leading-relaxed">
-                    Nơi biến những thước phim thô thành sản phẩm hoàn chỉnh độc đáo. Quy trình cắt dựng nhịp điệu kết hợp kỹ thuật cân chỉnh màu sắc chuyên sâu mang lại chất lượng hiển thị điện ảnh.
+                <p class="text-gray-600 leading-relaxed font-light">
+                    Biến các tư liệu thô sơ thành kiệt tác truyền thông hoàn hảo. Từ việc biên soạn kịch bản phân cảnh chi tiết, cắt dựng nhịp điệu âm thanh sống động đến bước cân màu nghệ thuật chuyên sâu (Color Grading).
                 </p>
-                <ul class="space-y-2 text-gray-600 font-medium text-sm">
-                    <li>✓ Dựng phim chuyên nghiệp & Hiệu ứng hình ảnh</li>
-                    <li>✓ Color Grading (Cân màu nghệ thuật)</li>
-                    <li>✓ Lên kịch bản phân cảnh chi tiết</li>
-                </ul>
+                <div class="grid grid-cols-2 gap-3 text-sm font-medium text-gray-700 pt-2">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Dựng phim chuyên nghiệp</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Color Grading chuyên sâu</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Kịch bản phân cảnh chi tiết</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span>Xử lý hiệu ứng hình ảnh</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -208,109 +357,87 @@
     <section class="py-20 bg-gray-50 px-6">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
-                <h2 class="section-title font-display font-bold text-4xl text-gray-900 mb-4">Quy trình làm việc</h2>
+                <h2 class="section-title font-display font-bold text-4xl text-gray-900 mb-4">Quy trình làm việc nghiêm ngặt</h2>
             </div>
             <div class="grid md:grid-cols-4 gap-6">
                 <div class="service-card bg-white p-6 rounded-2xl shadow-sm fade-in-up">
-                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2">Bước 01</span>
+                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2 font-mono">Bước 01</span>
                     <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Pre-production</h3>
-                    <p class="text-sm text-gray-600">Tiếp nhận thông tin, khảo sát bối cảnh và lên kịch bản chi tiết.</p>
+                    <p class="text-sm text-gray-600 font-light">Tiếp nhận thông tin sơ bộ, tiến hành khảo sát bối cảnh thực tế và hoàn thiện kịch bản phân cảnh.</p>
                 </div>
-                <div class="service-card bg-white p-6 rounded-2xl shadow-sm fade-in-up">
-                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2">Bước 02</span>
+                <div class="service-card bg-white p-6 rounded-2xl shadow-sm fade-in-up" style="animation-delay: 0.1s;">
+                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2 font-mono">Bước 02</span>
                     <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Production</h3>
-                    <p class="text-sm text-gray-600">Bấm máy thực hiện với thiết bị tối tân và ekip chuyên nghiệp.</p>
+                    <p class="text-sm text-gray-600 font-light">Bấm máy thực hiện ghi hình trực tiếp phối hợp cùng hệ thống trang thiết bị cao cấp và ekip bài bản.</p>
                 </div>
-                <div class="service-card bg-white p-6 rounded-2xl shadow-sm fade-in-up">
-                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2">Bước 03</span>
+                <div class="service-card bg-white p-6 rounded-2xl shadow-sm fade-in-up" style="animation-delay: 0.2s;">
+                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2 font-mono">Bước 03</span>
                     <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Post-production</h3>
-                    <p class="text-sm text-gray-600">Cắt dựng, xử lý hiệu ứng âm thanh và cân chỉnh màu sắc chuyên sâu.</p>
+                    <p class="text-sm text-gray-600 font-light">Tiến hành cắt dựng nhịp điệu, thiết kế hiệu ứng âm thanh và thực hiện cân màu mỹ thuật hoàn chỉnh.</p>
                 </div>
-                <div class="service-card bg-white p-6 rounded-2xl shadow-sm fade-in-up">
-                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2">Bước 04</span>
+                <div class="service-card bg-white p-6 rounded-2xl shadow-sm fade-in-up" style="animation-delay: 0.3s;">
+                    <span class="text-xs font-bold text-emerald-600 uppercase block mb-2 font-mono">Bước 04</span>
                     <h3 class="font-display font-bold text-xl text-gray-900 mb-2">Bàn giao</h3>
-                    <p class="text-sm text-gray-600">Nghiệm thu, tinh chỉnh theo yêu cầu và xuất file định dạng chất lượng cao.</p>
+                    <p class="text-sm text-gray-600 font-light">Gửi duyệt bản demo, hỗ trợ căn chỉnh tối ưu theo yêu cầu và xuất file định dạng chất lượng cao nhất.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 px-6">
         <div class="container mx-auto max-w-6xl">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-2 mb-4">
                         <div class="w-11 h-11 rounded-xl overflow-hidden shadow-lg shadow-neon/20 group-hover:rotate-6 transition-transform duration-300">
-        <img src="logo.jpg" 
-             alt="HMD Media Logo" 
-             class="w-full h-full object-cover">
-    </div>
-    
-    <span  class="text-2xl font-display font-bold text-white tracking-tighter">
-        MH<span class="text-neon"> </span>MEDIA
-    </span>
-                        
+                            <img src="logo.jpg" alt="MH Media Logo" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-2xl font-display font-bold text-white tracking-tighter">MH MEDIA</span>
                     </div>
-                    <p class="text-gray-400 mb-4 max-w-sm">
+                    <p class="text-gray-400 mb-4 max-w-sm font-light">
                         Đồng hành cùng thương hiệu Việt chinh phục thị trường số với những giải pháp truyền thông sáng tạo và hiệu quả.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
-                
                 <div>
                     <h4 class="font-display font-bold text-lg mb-4">Dịch vụ</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#services" class="hover:text-emerald-400 transition">Digital Marketing</a></li>
-                        <li><a href="#services" class="hover:text-emerald-400 transition">Video Production</a></li>
-                        <li><a href="#services" class="hover:text-emerald-400 transition">Content Creation</a></li>
-                        <li><a href="#services" class="hover:text-emerald-400 transition">Brand Strategy</a></li>
+                    <ul class="space-y-2 text-gray-400 text-sm font-light">
+                        <li><a href="dich-vu.html" class="hover:text-emerald-400 transition">Video Production</a></li>
+                        <li><a href="dich-vu.html" class="hover:text-emerald-400 transition">Photography</a></li>
+                        <li><a href="dich-vu.html" class="hover:text-emerald-400 transition">Post-Production</a></li>
                     </ul>
                 </div>
-                
                 <div>
                     <h4 class="font-display font-bold text-lg mb-4">Công ty</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#team" class="hover:text-emerald-400 transition">Về chúng tôi</a></li>
-                        <li><a href="#portfolio" class="hover:text-emerald-400 transition">Portfolio</a></li>
-                        <li><a href="#contact" class="hover:text-emerald-400 transition">Liên hệ</a></li>
-                        <li><a href="#" class="hover:text-emerald-400 transition">Tuyển dụng</a></li>
+                    <ul class="space-y-2 text-gray-400 text-sm font-light">
+                        <li><a href="index.html#team" class="hover:text-emerald-400 transition">Về chúng tôi</a></li>
+                        <li><a href="du-an.html" class="hover:text-emerald-400 transition">Portfolio</a></li>
+                        <li><a href="lien-he.html" class="hover:text-emerald-400 transition">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-xs font-light">
                 <p>&copy; 2026 MH Media Agency. Tất cả các quyền được bảo lưu.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
+
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in-up, .service-card').forEach((el) => observer.observe(el));
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('fade-in-up');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.service-card').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
